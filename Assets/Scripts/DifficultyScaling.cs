@@ -6,6 +6,7 @@ public class DifficultyScaling : MonoBehaviour
 {
     float timeElapsed = 0;
     public float firingSpeedMultiplier = 1;
+    public float score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class DifficultyScaling : MonoBehaviour
         {
             firingSpeedMultiplier = 1 + (timeElapsed / 50);
         }
-        
+
+        score = score + Time.deltaTime * 20;
     }
 }

@@ -10,12 +10,12 @@ public class ItemForce : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-        speed = Random.Range(1, 10);
+        speed = Random.Range(5, 13);
         rb.AddForce(transform.forward * Random.Range(8, 22) * rb.mass, ForceMode.Impulse);
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.AddTorque(new Vector3(-speed * rb.mass, 0, 0));
 
