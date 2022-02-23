@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RotateTube : MonoBehaviour
 {
-    float maxAngle = 0.14f;
+    float maxAngle = 0.07f;
     public Quaternion x;
     public Rigidbody rb;
 

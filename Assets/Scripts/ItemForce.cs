@@ -19,6 +19,12 @@ public class ItemForce : MonoBehaviour
     {
         rb.AddTorque(new Vector3(-speed * rb.mass, 0, 0));
 
-        if (transform.position.z < -10) { Destroy(this.gameObject); }
+        if (transform.position.z < -10) 
+        {
+            Destroy(this.gameObject.GetComponent<AudioSource>());
+            Destroy(this.gameObject);
+
+        }
+
     }
 }

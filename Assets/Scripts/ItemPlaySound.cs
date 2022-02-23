@@ -28,7 +28,7 @@ public class ItemPlaySound : MonoBehaviour
     private void OnCollisionEnter(Collision collider)
     {
         
-        if (speed > 3)
+        if (speed > 3 && this.gameObject != null)
         {
             audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length - 1)]);
         }

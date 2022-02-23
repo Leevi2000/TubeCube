@@ -10,6 +10,9 @@ public class PlayerHp : MonoBehaviour
     [SerializeField]
     public int hp = 0;
 
+    AudioSource audioSource;
+    public AudioClip[] audioClips;
+
     public GameObject hitParticle;
     public HealthBar healthBar;
     // Start is called before the first frame update
@@ -17,6 +20,7 @@ public class PlayerHp : MonoBehaviour
     {
         hp = maxHp;
         healthBar.SetHealth(maxHp);
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +39,8 @@ public class PlayerHp : MonoBehaviour
             Instantiate(hitParticle, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
 
             healthBar.SetHealth(hp);
+
+            audioSource.PlayOneShot(audioClips[UnityEngine.Random.Range(0, audioClips.Length - 1)]);
         }
     }
 }
