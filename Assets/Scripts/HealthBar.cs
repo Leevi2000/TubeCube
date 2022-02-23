@@ -10,13 +10,11 @@ public class HealthBar : MonoBehaviour
     int previousHp;
     GameObject player;
     public Slider slider;
-    // Start is called before the first frame update
-    //void Start()
-    //{
-    //    player = GameObject.FindGameObjectWithTag("Player");
-    //    currentHp = player.GetComponent<PlayerHp>().hp;
-    //    previousHp = player.GetComponent<PlayerHp>().hp;
-    //}
+    
+    void Start()
+    {
+        slider.value = 100;
+    }
 
     //// Update is called once per frame
     //void FixedUpdate()
@@ -29,24 +27,31 @@ public class HealthBar : MonoBehaviour
     //    previousHp = currentHp;
     //}
 
-    IEnumerator ShrinkHpBar(int health)
-    {
-        while(true)
-        {
-            float toReduce = 100 - health;
-            slider.value = slider.value - Mathf.Sqrt(toReduce);
-            toReduce = toReduce - Mathf.Sqrt(toReduce);
-            yield return new WaitForFixedUpdate();
-            if (toReduce <= health)
-            {
-                break;
-            }
-        }
-        
-    }
-
     public void SetHealth(int health)
     {
         StartCoroutine(ShrinkHpBar(health));
     }
+    IEnumerator ShrinkHpBar(int health)
+    {
+
+        while (true)
+        {
+
+            yield return new WaitForSecondsRealtime(0.01f);
+
+            if (slider.value == health)
+            {
+                break;
+            }
+            else
+            {
+                slider.value = slider.value - 1;
+            }
+            
+            
+        }
+        
+    }
+
+ 
 }
