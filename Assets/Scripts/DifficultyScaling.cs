@@ -6,10 +6,12 @@ public class DifficultyScaling : MonoBehaviour
     public float firingSpeedMultiplier = 1;
     public float score = 0;
     public ScoreText scoreTextScript;
+    public GameObject endCanvas;
     // Start is called before the first frame update
     void Start()
     {
-        
+        endCanvas.active = false;
+
     }
 
     // Update is called once per frame

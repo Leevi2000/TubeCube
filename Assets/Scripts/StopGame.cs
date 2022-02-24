@@ -4,9 +4,11 @@ using System.Collections;
 
 public class StopGame : MonoBehaviour
 {
+    public GameObject endCanvas;
     public void StopTime()
     {
         StartCoroutine(FreezeSlowDown());
+        EndGame();
     }
 
     IEnumerator FreezeSlowDown()
@@ -29,6 +31,6 @@ public class StopGame : MonoBehaviour
 
     public void EndGame()
     {
-
+        endCanvas.active = true;
     }
 }
